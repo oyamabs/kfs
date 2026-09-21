@@ -43,10 +43,15 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf iso
+	rm -f $(NAME).iso
 
 re:
 	+make fclean
 	+make all
+
+vm: $(NAME)
+	qemu-system-x86_64 -kernel kfs
 
 makeiso: $(NAME)
 	rm -rf iso
