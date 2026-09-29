@@ -40,5 +40,10 @@ void terminal_putchar(char c)
 		if (++term.row == TERM_HEIGHT)
 			term.row = 0;
 	}
+}
 
+void terminal_putstr(char *str)
+{
+	while (*str)
+		terminal_putchar(*str++);
 }
