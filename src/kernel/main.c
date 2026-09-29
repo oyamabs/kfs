@@ -6,5 +6,5 @@
 void	kernel_main(void)
 {
 	terminal_initialize();
-	terminal_putstr("Hello, World!\nHi");
+	terminal_putstr("42");
 }
