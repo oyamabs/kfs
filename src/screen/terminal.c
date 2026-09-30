@@ -1,6 +1,9 @@
 #include "../vga/vga.h"
 #include "terminal.h"
+#include "../consts.h"
+#include "../kernel/io.h"
 #include <stdbool.h>
+#include <stdint.h>
 
 struct s_terminal term;
 
@@ -19,6 +22,16 @@ void	terminal_initialize()
 			term.buffer[index] = vga_entry(' ', term.color);
 		}
 	}
+}
+
+void	terminal_curpos(uint8_t x, uint8_t y)
+{
+	uint16_t pos = GET_SCREENPOS(x, y);
+
+	outb(0x3d4, 0x0f);
+	outb(0x3d5, (uint8_t)(pos & 0xff));
+	outb(0x3d4, 0x0e);
+	outb(0x3d5, (uint8_t)((pos >> 8) & 0xff));
 }
 
 void terminal_setcolor(uint8_t color)
@@ -76,6 +89,7 @@ void terminal_putchar(char c)
 	}
 	if (term.row == TERM_HEIGHT)
 		scroll();
+	terminal_curpos(term.col, term.row);
 }
 
 void terminal_putstr(char *str)

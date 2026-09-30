@@ -12,6 +12,7 @@ ASMSRC = \
 		 src/boot.s \
 
 SOURCEFILES = \
+		src/kernel/io.c \
 		src/screen/terminal.c \
 		src/vga/vga.c \
 		src/kernel/main.c \
@@ -51,7 +52,7 @@ re:
 	+make all
 
 vm: $(NAME)
-	qemu-system-x86_64 -kernel kfs
+	qemu-system-i386 -kernel kfs
 
 makeiso: $(NAME)
 	rm -rf iso
