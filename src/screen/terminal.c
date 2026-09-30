@@ -70,7 +70,10 @@ void terminal_putchar(char c)
 		return ;
 	terminal_putentryat(c, term.color, term.col, term.row);
 	if (++term.col == TERM_WIDTH)
+	{
 		term.col = 0;
+		term.row++;
+	}
 	if (term.row == TERM_HEIGHT)
 		scroll();
 }
