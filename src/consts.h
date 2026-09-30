@@ -6,4 +6,6 @@
 # define VGA_MEMORY 0xB8000 // BIOS VGA Text mem address
 # define GET_SCREENPOS(x, y) { y * TERM_WIDTH + x }
 
+# define KBD_IO_PORT 0x60
+
 #endif // CONSTS_H
