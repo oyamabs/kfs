@@ -2,15 +2,9 @@
 # define TERMINAL_H
 
 # include "../consts.h"
+# include "../types.h"
 # include <stddef.h>
 # include <stdint.h>
-
-struct s_terminal {
-	size_t row;
-	size_t col;
-	uint8_t color;
-	uint16_t *buffer;
-};
 
 void	terminal_initialize(void);
 void	terminal_setcolor(uint8_t color);
