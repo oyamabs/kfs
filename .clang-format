@@ -1,0 +1,12 @@
+---
+BasedOnStyle: Webkit
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: Allman
+SpaceBeforeParens: ControlStatements 
+ColumnLimit: 80
+PointerAlignment: Right
+AlignConsecutiveAssignments: Consecutive
+Language: C
+Standard: c99

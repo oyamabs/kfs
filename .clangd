@@ -1,0 +1,12 @@
+If:
+  PathMatch: [.*\.c, .*\.h]
+
+CompileFlags:
+  Add: [
+    "-Wall",
+    "-Werror",
+    "-Wextra",
+    "-std=c99",
+    "-ffreestanding"
+  ]
+  Compiler: cc
