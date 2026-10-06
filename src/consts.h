@@ -7,5 +7,6 @@
 # define GET_SCREENPOS(x, y) { y * TERM_WIDTH + x }
 
 # define KBD_IO_PORT 0x60
+# define KBD_LAYOUT_SIZE 101
 
 #endif // CONSTS_H
