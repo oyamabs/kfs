@@ -14,6 +14,7 @@ ASMSRC = \
 SOURCEFILES = \
 		src/kernel/io.c \
 		src/screen/terminal.c \
+		src/keyboard/keyboard.c \
 		src/vga/vga.c \
 		src/kernel/main.c \
 
