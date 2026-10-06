@@ -51,6 +51,23 @@ bool special_chars(char c)
 	{
 		term.row++;
 		term.col = 0;
+		terminal_curpos(term.col, term.row);
+		return true;
+	}
+	if (c == '\b')
+	{
+		if (term.col > 0)
+		{
+			term.col--;
+			terminal_putentryat(' ', term.color, term.col, term.row);
+		}
+		if (term.col == 0 && term.row >= 1)
+		{
+			term.col = TERM_WIDTH;
+			term.row--;
+			terminal_putentryat(' ', term.color, term.col, term.row);
+		}
+		terminal_curpos(term.col, term.row);
 		return true;
 	}
 	return false;
