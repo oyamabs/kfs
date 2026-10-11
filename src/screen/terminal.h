@@ -13,5 +13,6 @@ void	terminal_putentryat(char c, uint8_t color, size_t x, size_t y);
 void	terminal_putchar(char c);
 void	terminal_putstr(char *str);
 void	terminal_curpos(uint8_t x, uint8_t y);
+void	scroll();
 
 #endif // TERMINAL_H
