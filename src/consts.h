@@ -4,6 +4,8 @@
 # define TERM_WIDTH 80
 # define TERM_HEIGHT 25
 # define VGA_MEMORY 0xB8000 // BIOS VGA Text mem address
+# define TERM_MAXNUM 3
+# define SELECTED_TERMINAL terms.selected_terminal
 # define GET_SCREENPOS(x, y) { y * TERM_WIDTH + x }
 
 # define KBD_IO_PORT 0x60

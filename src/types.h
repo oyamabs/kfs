@@ -1,6 +1,7 @@
 #ifndef TYPES_H
 # define TYPES_H
 
+#include "consts.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
@@ -23,6 +24,7 @@ typedef enum vga_color {
 	VGA_COLOR_LIGHT_RED = 12,
 	VGA_COLOR_LIGHT_MAGENTA = 13,
 	VGA_COLOR_LIGHT_BROWN = 14,
+	VGA_COLOR_YELLOW = 14,
 	VGA_COLOR_WHITE = 15,
 }	t_vga_color;
 
@@ -32,7 +34,12 @@ struct s_terminal {
 	size_t row;
 	size_t col;
 	uint8_t color;
-	uint16_t *buffer;
+	uint16_t buffer[TERM_HEIGHT * TERM_WIDTH];
+};
+
+struct s_terminals {
+	int selected_terminal;
+	struct s_terminal term[TERM_MAXNUM];
 };
 
 /// KEYBOARD

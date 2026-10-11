@@ -40,6 +40,22 @@ static char kbd_process(uint8_t scancode)
 	if (is_break || code >= 128)
 		return 0;
 	
+	if (kbd.modifier.ctrl)
+	{
+		switch (us_layout[code].normal)
+		{
+			case '1':
+				select_terminal(0);
+			break;
+			case '2':
+				select_terminal(1);
+			break;
+			case '3':
+				select_terminal(2);
+			break;
+		}
+		return 0;
+	}
 	if (kbd.modifier.l_alt)
 		return 0;
 	if (kbd.modifier.caps_lock || kbd.modifier.shift)
