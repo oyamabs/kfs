@@ -4,6 +4,7 @@
 #include "../kernel/io.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include <limits.h>
 
 struct s_terminals terms;
 uint16_t *vga_buffer = (uint16_t*)VGA_MEMORY;
@@ -188,6 +189,28 @@ void terminal_putchar(char c)
 	if (terms.term[SELECTED_TERMINAL].row == TERM_HEIGHT)
 		scroll();
 	terminal_curpos(terms.term[SELECTED_TERMINAL].col, terms.term[SELECTED_TERMINAL].row);
+}
+
+void	terminal_putnbr(int nb)
+{
+	if (nb == INT_MIN)
+	{
+		terminal_putchar('-');
+		terminal_putchar('2');
+		nb = 147483648;
+	}
+	if (nb < 0)
+	{
+		terminal_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		terminal_putnbr(nb / 10);
+		terminal_putnbr(nb % 10);
+	}
+	else
+		terminal_putchar('0' + nb);
 }
 
 void terminal_putstr(char *str)

@@ -4,6 +4,7 @@
 #include "../screen/terminal.h"
 #include "../vga/vga.h"
 #include "../keyboard/keyboard.h"
+#include "../../minift/includes/libft.h"
 
 void	kernel_main(void)
 {
@@ -18,6 +19,7 @@ void	kernel_main(void)
 	terminal_putentryat('4', vga_entry_color(VGA_COLOR_GREEN, VGA_COLOR_BLACK), (TERM_WIDTH / 2) - 1, TERM_HEIGHT / 2);
 	terminal_putentryat('2', vga_entry_color(VGA_COLOR_GREEN, VGA_COLOR_BLACK), (TERM_WIDTH / 2), TERM_HEIGHT / 2);
 	select_terminal(0);
+	ft_printf("coucou %s %s %d", "theo", 2, 3);
 	while (true)
 	{
 		c = poll_keyboard();

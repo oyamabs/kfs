@@ -5,7 +5,7 @@ ASM = nasm -felf32
 # https://github.com/google/sanitizers/wiki/AddressSanitizer
 SANITIZERS = -fsanitize=address,undefined -fno-omit-frame-pointer
 ifeq ($(CFLAGS),)
-	CFLAGS = -Wall -Wextra -Werror -std=gnu99 -ffreestanding
+	CFLAGS = -Wall -Wextra -Werror -O0 -g3 -std=gnu99 -ffreestanding
 endif
 
 ASMSRC = \
@@ -30,7 +30,8 @@ all: $(ASMOBJECTS) $(OBJECTS) $(NAME)
 -include $(DEPS)
 
 $(NAME): $(ASMOBJECTS) $(OBJECTS)
-	$(CC) $(CFLAGS) $(IFLAGS) -T src/linker.ld $(ASMOBJECTS) $(OBJECTS) -o $(NAME) -nostdlib -lgcc
+	+$(MAKE) -C minift/
+	$(CC) $(CFLAGS) $(IFLAGS) -T src/linker.ld $(ASMOBJECTS) $(OBJECTS) -o $(NAME) -nostdlib -lgcc -Lminift -lft
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $(IFLAGS) -o $*.o $*.c
