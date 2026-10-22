@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printhex.c                                         :+:      :+:    :+:   */
+/*   printptr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchampio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 05:52:06 by tchampio          #+#    #+#             */
-/*   Updated: 2024/11/04 15:25:12 by tchampio         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:33:14 by tchampio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_print_ptr_nb(uintptr_t decimal_number)
 	j = i - 1;
 	while (j > 0)
 	{
-		ft_putchar_fd(ft_tolower(hexa_number[j--]), 1);
+		terminal_putchar(ft_tolower(hexa_number[j--]));
 	}
 	return (i - 1);
 }
@@ -45,11 +45,11 @@ int	ft_print_ptr(void *ptr)
 
 	if (ptr == NULL)
 	{
-		ft_putstr_fd("(nil)", 1);
+		terminal_putstr("(nil)");
 		return (5);
 	}
 	addr = (uintptr_t)ptr;
-	ft_putstr_fd("0x", 1);
+	terminal_putstr("0x");
 	size = ft_print_ptr_nb(addr) + 2;
 	return (size);
 }

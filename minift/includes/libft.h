@@ -6,7 +6,7 @@
 /*   By: tchampio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:40:57 by tchampio          #+#    #+#             */
-/*   Updated: 2024/12/18 04:40:53 by tchampio         ###   ########.fr       */
+/*   Updated: 2026/10/22 21:12:38 by tchampio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 extern void terminal_putstr(char *str);
 extern void terminal_putchar(char c);
+extern void terminal_putnbr(int nb);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -42,6 +43,7 @@ void	*ft_memchr(void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_itoa_static(int n, char *s, size_t s_size);
 int		ft_printf(const char *format, ...);
 
 #endif
