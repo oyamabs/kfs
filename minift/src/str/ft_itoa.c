@@ -6,7 +6,7 @@
 /*   By: tchampio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 11:29:14 by tchampio          #+#    #+#             */
-/*   Updated: 2026/10/22 21:26:27 by tchampio         ###   ########.fr       */
+/*   Updated: 2026/10/22 22:09:34 by tchampio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static void	populate_array(char *s, int n, size_t size)
 char	*ft_itoa_static(int n, char *s, size_t s_size)
 {
 	size_t	size;
-	(void)s_size;
 
 	size = getnumberoffigures(n);
+	ft_bzero(s, s_size);
 	if (n == 0)
 		ft_strlcpy(s, "0", 2);
 	populate_array(s, n, size);
